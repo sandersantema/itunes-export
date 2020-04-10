@@ -52,11 +52,12 @@ playlists = {}
 
 library = Library(libraryPath)
 for playlistName in library.getPlaylistNames(ignoreList=[
-        "Library", "Music", "Movies", "TV Shows", "Purchased", "iTunes DJ", "Podcasts", "Audiobooks", "Downloaded"
+        "Library", "Music", "Movies", "TV Shows", "Purchased", "iTunes DJ", "Podcasts", "Audiobooks", "Downloaded",
+        "Bibliotheek", "Muziek", "Films", "TV-programma's", "Aangekocht", "iTunes DJ", "Podcasts", "Audioboeken", "Gedownload"
 ] + ignoreList):
     playlist = library.getPlaylist(playlistName)
     playlists[playlist.playlist_persistent_id] = playlist
 
-for playlist in playlists.values(): 
+for playlist in playlists.values():
     if(playlist.parent_persistent_id == None) :
         exportPlaylist(playlist, playlistRootPath)
